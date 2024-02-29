@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
+require("dotenv").config();
+//mongodb connection url
 
-//mongodb onnection url
-
-const URL = "mongodb+srv://utkarshbarnawal8:mern@cluster0.momqw6l.mongodb.net/mern_admin?retryWrites=true&w=majority";
+const URL = process.env.DB_URL;
 
 //set up mongodb
 mongoose.connect(URL, {
@@ -21,6 +21,5 @@ db.on("error", (err) => {
 db.on("disconnected", () => {
   console.log("Mongodb disconnected");
 });
-
 
 module.exports = db;
