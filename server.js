@@ -21,7 +21,7 @@ app.use(logRequest);
 app.use(passport.initialize());
 const localAuthMiddleware = passport.authenticate("local", { session: false });
 const personRoutes = require("./routes/personRoutes");
-app.use("/person", localAuthMiddleware, personRoutes);
+app.use("/person", personRoutes);
 
 const PORT = process.env.PORT || 3000;
 
